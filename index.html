@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="GenieMaster: an embodied continual harness for persistent multi-robot work." />
+    <title>GenieMaster | An Embodied Continual Harness</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#top">GenieMaster</a>
+        <nav class="top-nav" aria-label="Page sections">
+          <a href="#features">Features</a>
+          <a href="#protocol">Protocol</a>
+          <a href="#guidance">Guidance</a>
+          <a href="#evidence">Evidence</a>
+        </nav>
+        <div class="header-links">
+          <a class="header-link" href="https://arxiv.org/" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">&#8599;</span></a>
+          <span class="header-link disabled">Code <small>Coming soon</small></span>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="intro section-shell">
+        <p class="kicker">Research project / 2026</p>
+        <h1>GenieMaster: An Embodied Continual Harness for Persistent Multi-Robot Work</h1>
+        <p class="standfirst">How can a general-purpose agent keep robots useful after the first action, the first task, or the first failure? GenieMaster connects high-level reasoning to responsive, closed-loop execution through a shared interface for guidance, feedback, and task continuity.</p>
+        <div class="intro-meta"><span>Anonymous Authors</span><span>ICLR 2027 submission</span><span>Robotics / Agents / VLA</span></div>
+      </section>
+
+      <section class="video-section section-shell" id="video">
+        <div class="video-heading"><span class="section-number">00</span><div><p class="kicker">Project film</p><h2>Persistent work, in motion.</h2></div></div>
+        <div class="video-placeholder" data-video-slot="main">
+          <div class="video-grid"></div>
+          <div class="video-copy"><span class="video-play" aria-hidden="true">&#9654;</span><strong>Main video placeholder</strong><span>Replace with the project film (.mp4 / .webm)</span></div>
+          <span class="video-label">GENIEMASTER / MAIN FILM</span>
+        </div>
+        <p class="video-caption">The film will introduce the complete loop: an agent interprets a request, supplies actionable context, observes physical outcomes, and keeps the work moving across robots and interruptions.</p>
+      </section>
+
+      <section class="article-section section-shell" id="problem">
+        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">01</span><span class="rail-title">Why this problem</span></aside><article class="article-copy">
+          <p class="kicker">The deployment gap</p><h2>Robots need more than a plan.</h2>
+          <p>Frontier agents can reason about unfamiliar tasks and objects, while learned policies can react at the timescale of physical contact. A deployed system needs both. It must turn broad reasoning into signals a policy can use, then decide what actually happened after the action.</p>
+          <p>That loop becomes harder when work persists. Requests arrive dynamically, a higher-priority task interrupts the current one, and one robot's progress can determine whether another robot can proceed. A system that forgets unfinished work at every boundary cannot coordinate reliably.</p>
+          <div class="pull-quote">The central question is not only what action to take, but how to keep useful work going after the world responds.</div>
+        </article></div>
+      </section>
+
+      <section class="article-section feature-section section-shell" id="features">
+        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">02</span><span class="rail-title">What GenieMaster adds</span></aside><article class="article-copy wide-copy">
+          <p class="kicker">Core features</p><h2>Three interfaces make continual work possible.</h2>
+          <p>GenieMaster is organized around the information that must cross the boundary between an agent and a robot. Each feature addresses a different failure mode in long-running execution.</p>
+          <div class="feature-list">
+            <article class="feature-row feature-blue"><span class="feature-index">01</span><div><h3>Multimodal policy guidance</h3><p>The agent can provide detailed language, spatial cues, and object reference images. These are not post-hoc annotations: the policy is trained to interpret the same guidance representations it receives during deployment.</p></div></article>
+            <article class="feature-row feature-orange"><span class="feature-index">02</span><div><h3>Bidirectional execution feedback</h3><p>Observations, progress, success, and error evidence return to the agent. The agent can advance a subtask, revise its guidance, or trigger recovery instead of assuming that an action succeeded.</p></div></article>
+            <article class="feature-row feature-green"><span class="feature-index">03</span><div><h3>Persistent task state and memory</h3><p>Assignments, dependencies, unfinished work, and execution experience are retained. Temporary memory supports ongoing tasks, while asynchronous reflection turns experience into reusable context for later orchestration.</p></div></article>
+          </div>
+        </article></div>
+      </section>
+
+      <section class="article-section section-shell" id="protocol">
+        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">03</span><span class="rail-title">How it works</span></aside><article class="article-copy wide-copy">
+          <p class="kicker">Embodied Execution Protocol</p><h2>A stable contract between reasoning and action.</h2>
+          <p>The protocol exposes capabilities through shared tool descriptions, input parameters, and result contracts. Domain interfaces describe task semantics and business context; embodiment interfaces bind those tasks to robot instances and execution services.</p>
+          <figure class="image-frame architecture-frame"><img src="assets/geniemaster-architecture.png" alt="GenieMaster architecture showing domain, embodiment, coding agent, robot execution services, feedback, recovery, and memory" /><figcaption><span>FIG. 01</span><span>Embodied Execution Protocol</span></figcaption></figure>
+          <p class="figure-note">The coding agent composes execution requests, receives physical evidence, and keeps task context available across invocations. This separation lets the harness coordinate heterogeneous robots without changing the high-level task interface.</p>
+        </article></div>
+      </section>
+
+      <section class="article-section section-shell" id="guidance">
+        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">04</span><span class="rail-title">What the policy sees</span></aside><article class="article-copy wide-copy">
+          <p class="kicker">Agent-policy co-design</p><h2>Context only helps when the policy can use it.</h2>
+          <p>An agent may identify a product from a catalog, locate an interaction point, or describe a safer approach. GenieMaster aligns demonstrations, annotations, and VLA training around those same inputs, so acquired context becomes executable behavior.</p>
+          <figure class="image-frame guidance-frame"><img src="assets/guidance-modalities-mj.png" alt="Spatial guidance, object reference image, and detailed language guidance examples" /><figcaption><span>FIG. 02</span><span>Guidance modalities</span></figcaption></figure>
+          <div class="explanation-grid"><div><h3>Spatial cues</h3><p>Boxes, points, and trajectories localize the target and the intended interaction in the current camera view.</p></div><div><h3>Object references</h3><p>A reference image grounds a request in a product or object that may be absent from the training distribution.</p></div><div><h3>Detailed language</h3><p>Execution descriptions expose order, arm assignment, approach direction, and contact constraints.</p></div></div>
+        </article></div>
+      </section>
+
+      <section class="article-section section-shell" id="demos">
+        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">05</span><span class="rail-title">Video cases</span></aside><article class="article-copy wide-copy">
+          <p class="kicker">Real-world evaluations</p><h2>Long-horizon work has many moments that can go wrong.</h2>
+          <p>Once the main film is available, this section will hold short, annotated case videos. Each clip should show the request, the guidance supplied by the agent, the physical outcome, and the next orchestration decision.</p>
+          <div class="demo-list">
+            <article class="demo-row" data-video-slot="demo-1"><span class="demo-number">01</span><div><h3>Novel product retrieval</h3><p>Use a reference image and store context to retrieve an unseen SKU.</p></div><span class="demo-status">Video coming soon &#8599;</span></article>
+            <article class="demo-row" data-video-slot="demo-2"><span class="demo-number">02</span><div><h3>Long-horizon household work</h3><p>Continue a task across multiple subtasks and changing physical conditions.</p></div><span class="demo-status">Video coming soon &#8599;</span></article>
+            <article class="demo-row" data-video-slot="demo-3"><span class="demo-number">03</span><div><h3>Multi-robot coordination</h3><p>Assign concurrent work and use progress to resolve dependencies.</p></div><span class="demo-status">Video coming soon &#8599;</span></article>
+            <article class="demo-row" data-video-slot="demo-4"><span class="demo-number">04</span><div><h3>Failure and recovery</h3><p>Return evidence to the agent and revise the next execution request.</p></div><span class="demo-status">Video coming soon &#8599;</span></article>
+          </div>
+        </article></div>
+      </section>
+
+      <section class="article-section section-shell" id="evidence">
+        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">06</span><span class="rail-title">Evidence</span></aside><article class="article-copy wide-copy">
+          <p class="kicker">Selected results</p><h2>Experience becomes better execution.</h2>
+          <p>Our experiments isolate how capability expansion, agent-provided visual context, and continual reflection affect robot work. The figures below are selected from the paper and will be updated with final links and captions.</p>
+          <div class="metrics"><div><strong>78.79%</strong><span>macro success rate across six real-world tasks</span></div><div><strong>92%</strong><span>novel product success with visual guidance</span></div><div><strong>24 h</strong><span>convenience-store deployment window</span></div></div>
+          <div class="result-grid"><figure class="image-frame result-large"><img src="assets/product-generalization.png" alt="Product generalization results" /><figcaption><span>Product generalization</span><span>Novel SKU retrieval</span></figcaption></figure><figure class="image-frame"><img src="assets/capability-expansion.png" alt="Capability expansion results" /><figcaption><span>Capability expansion</span><span>Tool integration</span></figcaption></figure><figure class="image-frame"><img src="assets/orchestration-self-evolution.png" alt="Orchestration self evolution results" /><figcaption><span>Continual adaptation</span><span>Reflection and memory</span></figcaption></figure></div>
+        </article></div>
+      </section>
+
+      <section class="paper-section section-shell" id="paper">
+        <div class="paper-inner"><p class="kicker">Read the paper</p><h2>GenieMaster: An Embodied Continual Harness for Persistent Multi-Robot Work</h2><p>Anonymous Authors · ICLR 2027 submission</p><div class="paper-buttons"><a class="button button-dark" href="https://arxiv.org/" target="_blank" rel="noreferrer">Paper PDF <span aria-hidden="true">&#8599;</span></a><span class="button button-disabled">Code <small>Coming soon</small></span></div><pre id="bibtex">@article{geniemaster2026,
+  title  = {GenieMaster: An Embodied Continual Harness for Persistent Multi-Robot Work},
+  author = {Anonymous Authors},
+  year   = {2026}
+}</pre><button id="copy-bib" class="copy-button" type="button">Copy BibTeX</button><span id="copy-feedback" aria-live="polite"></span></div>
+      </section>
+    </main>
+    <footer class="site-footer section-shell"><span>GenieMaster</span><span>Embodied continual harness for persistent multi-robot work</span><a href="#top">Back to top &#8593;</a></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
