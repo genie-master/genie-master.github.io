@@ -18,3 +18,19 @@ document.querySelectorAll('[data-video-slot]').forEach((slot) => {
     slot.classList.toggle('is-selected');
   });
 });
+
+document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+  const track = carousel.querySelector('.carousel-track');
+  const previous = carousel.querySelector('[data-carousel-prev]');
+  const next = carousel.querySelector('[data-carousel-next]');
+  if (!track || !previous || !next) return;
+  const updateButtons = () => {
+    previous.disabled = track.scrollLeft <= 1;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+  };
+  previous.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth * 0.86, behavior: 'smooth' }));
+  next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth * 0.86, behavior: 'smooth' }));
+  track.addEventListener('scroll', updateButtons, { passive: true });
+  window.addEventListener('resize', updateButtons);
+  updateButtons();
+});
