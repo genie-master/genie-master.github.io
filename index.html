@@ -56,13 +56,8 @@
         <a href="#eep">EEP</a>
         <a href="#contracts">EEP contracts</a>
         <a href="#adaptation">Continual adaptation</a>
-        <span class="toc-label toc-sub-label">Experiments</span>
-        <a href="#overall-performance">Overall performance</a>
-        <a href="#capability-expansion">Capability composition</a>
-        <a href="#product-generalization">Product generalization</a>
-        <a href="#learning-from-experience">Learning from experience</a>
-        <a href="#libero-pro">LIBERO-Pro</a>
-        <a href="#persistent-deployment">Persistent deployment</a>
+        <a href="#experiments">Experiments</a>
+        <a href="#paper">Paper</a>
       </nav>
 
       <section class="article-section overview-section section-shell" id="overview">
@@ -76,7 +71,7 @@
 
       <section class="article-section eep-section section-shell" id="eep">
         <div class="article-grid"><aside class="chapter-rail"><span class="section-number">01</span><span class="rail-title">The execution protocol</span></aside><article class="article-copy wide-copy">
-          <p class="kicker">Embodied Execution Protocol</p><h2>EEP: One interface for reasoning, action, and what happens next.</h2>
+          <p class="kicker">EEP / Embodied Execution Protocol</p><h2>Embodied Execution Protocol (EEP)</h2>
           <p>EEP is the agent&#8211;embodiment interface at the center of GenieMaster. It lets a coding agent invoke robot capabilities, provide context that a policy has learned to use, inspect physical outcomes, and carry unfinished work across invocations and robots.</p>
           <p>The protocol is inspired by the tool abstraction of Model Context Protocol (MCP). Domain workflows express task semantics; embodiment implementations bind those workflows to robot instances, calibration, and execution services. Shared descriptions, parameters, and result contracts keep orchestration extensible.</p>
           <figure class="image-frame architecture-frame"><img src="assets/geniemaster-architecture.png" alt="GenieMaster architecture showing EEP contracts, policy guidance, feedback, continuity, and experience memory" /><figcaption><span>FIG. 02</span><span>EEP architecture</span></figcaption></figure>
@@ -89,11 +84,12 @@
           <p class="kicker">Capability / Guidance / Feedback / Continuity</p><h2>Four contracts make persistent execution legible.</h2>
           <p>Each contract answers a different question: what can the system do, what should the policy use, what physically happened, and what must remain true when the next task arrives?</p>
           <div class="contract-list">
-            <article class="contract-row contract-capability"><span class="contract-index">01</span><div><h3>Capability</h3><p>Domain tools compose workflows such as navigation, pick, and place. Embodiment tools connect those operations to a selected robot and its execution services.</p><span class="contract-detail">Tool name / arguments / execution result</span></div></article>
-            <article class="contract-row contract-guidance"><span class="contract-index">02</span><div><h3>Guidance</h3><p>The agent supplies detailed language, spatial cues, or object reference images alongside observations, robot state, and the subtask instruction.</p><span class="contract-detail">Context the policy is trained to use</span></div></article>
-            <article class="contract-row contract-feedback"><span class="contract-index">03</span><div><h3>Feedback</h3><p>Observations, status, and success/error evidence return to the agent. The agent can advance, revise guidance, arrange another observation, or recover.</p><span class="contract-detail">Evidence for progression and recovery</span></div></article>
-            <article class="contract-row contract-continuity"><span class="contract-index">04</span><div><h3>Continuity</h3><p>Assignments, progress, dependencies, and unfinished tasks persist across invocations. This supports coordination when work is interrupted or a robot changes.</p><span class="contract-detail">Task context that survives the boundary</span></div></article>
+            <article class="contract-row contract-capability"><span class="contract-index">01</span><div><h3>Capability</h3><p>Domain tools compose workflows such as navigation, pick, and place; embodiment tools bind them to a selected robot, calibration, and execution service.</p><span class="contract-detail">Task workflows / composed tools / robot capabilities</span></div></article>
+            <article class="contract-row contract-guidance"><span class="contract-index">02</span><div><h3>Guidance</h3><p>The agent supplies detailed language, spatial boxes or points, and object reference images alongside observations and the subtask instruction.</p><span class="contract-detail">Language / spatial cues / object references</span></div></article>
+            <article class="contract-row contract-feedback"><span class="contract-index">03</span><div><h3>Feedback</h3><p>Current or recent observations, state, and success/error evidence return to the agent so it can progress, revise guidance, or recover.</p><span class="contract-detail">Observations / state / success or error</span></div></article>
+            <article class="contract-row contract-continuity"><span class="contract-index">04</span><div><h3>Continuity</h3><p>Robot assignments, progress, dependencies, and unfinished work persist across invocations, enabling coordination when a task is interrupted or a robot changes.</p><span class="contract-detail">Assignments / progress / dependencies / unfinished work</span></div></article>
           </div>
+          <figure class="image-frame contracts-frame"><img src="assets/gm-framework-eep.png" alt="EEP framework showing capability, guidance, feedback, and continuity contracts" /><figcaption><span>FIG. 04</span><span>EEP contracts and execution flow</span></figcaption></figure>
           <div class="contract-callout"><strong>Guidance and Feedback are bidirectional.</strong><span>The agent guides a responsive policy; physical evidence informs the next decision.</span></div>
         </article></div>
       </section>
@@ -135,21 +131,21 @@
             <span class="experiment-label">04.2 / Capability composition and control allocation</span>
             <h3>Capability composition and control allocation</h3>
             <p>As the available capability set grows from C1 to C5, success rises from 25% to 97%. Domain workflows compose reusable tools, while the harness allocates subtasks to the robot that can execute them.</p>
-            <figure class="image-frame experiment-figure"><img src="assets/capability-expansion.png" alt="Success increases as GenieMaster expands from capability set C1 to C5" /><figcaption><span>FIG. 04</span><span>Capability expansion</span></figcaption></figure>
+            <figure class="image-frame experiment-figure"><img src="assets/capability-expansion.png" alt="Success increases as GenieMaster expands from capability set C1 to C5" /><figcaption><span>FIG. 05</span><span>Capability expansion</span></figcaption></figure>
           </div>
 
           <div class="experiment-block" id="product-generalization">
             <span class="experiment-label">04.3 / Unseen-product generalization through in-context guidance</span>
             <h3>Unseen-product generalization through in-context guidance</h3>
             <p>With EEP-guided object references, novel-product retrieval improves from 12% at 10 training SKUs to 92% at 1,000. A separately trained text-only policy reaches 20% at the same scale, showing why agent-provided guidance must be aligned with policy training.</p>
-            <figure class="image-frame experiment-figure"><img src="assets/product-generalization.png" alt="EEP-guided and text-only product generalization across training SKU scales" /><figcaption><span>FIG. 05</span><span>Product generalization</span></figcaption></figure>
+            <figure class="image-frame experiment-figure"><img src="assets/product-generalization.png" alt="EEP-guided and text-only product generalization across training SKU scales" /><figcaption><span>FIG. 06</span><span>Product generalization</span></figcaption></figure>
           </div>
 
           <div class="experiment-block" id="learning-from-experience">
             <span class="experiment-label">04.4 / Learning from experience</span>
             <h3>Learning from experience</h3>
             <p>Reflection improves completion-boundary alignment for six of seven detectors. With accumulated memory, orchestration success rises from 28.6% in round one to 85.7% in round five, while tool use remains in the same operating range.</p>
-            <figure class="image-frame experiment-figure"><img src="assets/orchestration-self-evolution.png" alt="Orchestration success across five rounds with accumulated memory" /><figcaption><span>FIG. 06</span><span>Accumulated memory and orchestration</span></figcaption></figure>
+            <figure class="image-frame experiment-figure"><img src="assets/orchestration-self-evolution.png" alt="Orchestration success across five rounds with accumulated memory" /><figcaption><span>FIG. 07</span><span>Accumulated memory and orchestration</span></figcaption></figure>
           </div>
 
           <div class="experiment-block" id="libero-pro">
