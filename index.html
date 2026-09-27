@@ -50,6 +50,21 @@
         </div>
       </section>
 
+      <nav class="page-toc" aria-label="Contents">
+        <span class="toc-label">Contents</span>
+        <a href="#overview">At a glance</a>
+        <a href="#eep">EEP</a>
+        <a href="#contracts">EEP contracts</a>
+        <a href="#adaptation">Continual adaptation</a>
+        <span class="toc-label toc-sub-label">Experiments</span>
+        <a href="#overall-performance">Overall performance</a>
+        <a href="#capability-expansion">Capability composition</a>
+        <a href="#product-generalization">Product generalization</a>
+        <a href="#learning-from-experience">Learning from experience</a>
+        <a href="#libero-pro">LIBERO-Pro</a>
+        <a href="#persistent-deployment">Persistent deployment</a>
+      </nav>
+
       <section class="article-section overview-section section-shell" id="overview">
         <div class="article-grid"><aside class="chapter-rail"><span class="section-number">00</span><span class="rail-title">At a glance</span></aside><article class="article-copy wide-copy">
           <p class="kicker">GenieMaster</p><h2>An interface that lets a coding agent work in the physical world.</h2>
@@ -61,7 +76,7 @@
 
       <section class="article-section eep-section section-shell" id="eep">
         <div class="article-grid"><aside class="chapter-rail"><span class="section-number">01</span><span class="rail-title">The execution protocol</span></aside><article class="article-copy wide-copy">
-          <p class="kicker">Embodied Execution Protocol</p><h2>One interface for reasoning, action, and what happens next.</h2>
+          <p class="kicker">Embodied Execution Protocol</p><h2>EEP: One interface for reasoning, action, and what happens next.</h2>
           <p>EEP is the agent&#8211;embodiment interface at the center of GenieMaster. It lets a coding agent invoke robot capabilities, provide context that a policy has learned to use, inspect physical outcomes, and carry unfinished work across invocations and robots.</p>
           <p>The protocol is inspired by the tool abstraction of Model Context Protocol (MCP). Domain workflows express task semantics; embodiment implementations bind those workflows to robot instances, calibration, and execution services. Shared descriptions, parameters, and result contracts keep orchestration extensible.</p>
           <figure class="image-frame architecture-frame"><img src="assets/geniemaster-architecture.png" alt="GenieMaster architecture showing EEP contracts, policy guidance, feedback, continuity, and experience memory" /><figcaption><span>FIG. 02</span><span>EEP architecture</span></figcaption></figure>
@@ -96,12 +111,12 @@
 
       <section class="article-section feature-section section-shell" id="experiments">
         <div class="article-grid"><aside class="chapter-rail"><span class="section-number">04</span><span class="rail-title">Experiments</span></aside><article class="article-copy wide-copy">
-          <p class="kicker">Evidence across the same execution loop</p><h2>Each experiment isolates a part of persistent physical work.</h2>
+          <p class="kicker">Evidence across the same execution loop</p><h2>Experimental evaluation</h2>
           <p>We follow the paper's order: shared setup, end-to-end performance, capability composition, unseen-product generalization, learning from experience, LIBERO-Pro, and persistent deployment.</p>
 
           <div class="experiment-block" id="overall-performance">
             <span class="experiment-label">04.1 / Experimental setup and overall end-to-end performance</span>
-            <h3>GenieMaster improves both task success and completion.</h3>
+            <h3>Overall end-to-end performance</h3>
             <p>Across six real-world tasks, GenieMaster reaches 78.67% success rate (SR) and 89.71% task completion (TC). Human orchestration remains a useful upper reference, while the EEP harness substantially exceeds the vanilla VLA and dual-system baselines.</p>
             <div class="bar-chart" role="img" aria-label="Overall success rate and task completion by method">
               <div class="chart-key"><span><i class="swatch swatch-sr"></i>Success rate (SR)</span><span><i class="swatch swatch-tc"></i>Task completion (TC)</span></div>
@@ -118,35 +133,35 @@
 
           <div class="experiment-block" id="capability-expansion">
             <span class="experiment-label">04.2 / Capability composition and control allocation</span>
-            <h3>Adding capabilities makes longer tasks executable.</h3>
+            <h3>Capability composition and control allocation</h3>
             <p>As the available capability set grows from C1 to C5, success rises from 25% to 97%. Domain workflows compose reusable tools, while the harness allocates subtasks to the robot that can execute them.</p>
             <figure class="image-frame experiment-figure"><img src="assets/capability-expansion.png" alt="Success increases as GenieMaster expands from capability set C1 to C5" /><figcaption><span>FIG. 04</span><span>Capability expansion</span></figcaption></figure>
           </div>
 
           <div class="experiment-block" id="product-generalization">
             <span class="experiment-label">04.3 / Unseen-product generalization through in-context guidance</span>
-            <h3>Visual references let the policy use knowledge at execution time.</h3>
+            <h3>Unseen-product generalization through in-context guidance</h3>
             <p>With EEP-guided object references, novel-product retrieval improves from 12% at 10 training SKUs to 92% at 1,000. A separately trained text-only policy reaches 20% at the same scale, showing why agent-provided guidance must be aligned with policy training.</p>
             <figure class="image-frame experiment-figure"><img src="assets/product-generalization.png" alt="EEP-guided and text-only product generalization across training SKU scales" /><figcaption><span>FIG. 05</span><span>Product generalization</span></figcaption></figure>
           </div>
 
           <div class="experiment-block" id="learning-from-experience">
             <span class="experiment-label">04.4 / Learning from experience</span>
-            <h3>Reflection improves assessment and orchestration over time.</h3>
+            <h3>Learning from experience</h3>
             <p>Reflection improves completion-boundary alignment for six of seven detectors. With accumulated memory, orchestration success rises from 28.6% in round one to 85.7% in round five, while tool use remains in the same operating range.</p>
             <figure class="image-frame experiment-figure"><img src="assets/orchestration-self-evolution.png" alt="Orchestration success across five rounds with accumulated memory" /><figcaption><span>FIG. 06</span><span>Accumulated memory and orchestration</span></figcaption></figure>
           </div>
 
           <div class="experiment-block" id="libero-pro">
             <span class="experiment-label">04.5 / Evaluation on LIBERO-Pro</span>
-            <h3>The same harness transfers to a benchmark setting.</h3>
+            <h3>Evaluation on LIBERO-Pro</h3>
             <p>Across Spatial, Object, Goal, and LIBERO-10 under position-swap and task perturbations, GenieMaster reaches 60.38% success, a 49.6-point gain over the listed 10.75% policy baseline. Mean execution time is 22.4 seconds.</p>
             <div class="stat-callout"><strong>60.38%</strong><span>LIBERO-Pro success</span><small>+49.6 percentage points over the listed policy baseline</small></div>
           </div>
 
           <div class="experiment-block" id="persistent-deployment">
             <span class="experiment-label">04.6 / Persistent deployment in a convenience store</span>
-            <h3>EEP keeps a live operation moving as requests arrive.</h3>
+            <h3>Persistent deployment in a convenience store</h3>
             <p>In a 24-hour convenience-store deployment, scheduled inspections trigger restocking, customer orders trigger retrieval, and the agent assigns available capable robots. Task state and feedback let the system resume work and route follow-ups through the same contracts used in the controlled experiments.</p>
           </div>
         </article></div>
