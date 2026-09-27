@@ -77,11 +77,11 @@
         <div class="article-grid"><aside class="chapter-rail"><span class="section-number">01</span><span class="rail-title">Persistent multi-robot work</span></aside><article class="article-copy wide-copy">
           <p class="kicker">Highlight / Persistent work</p><h2>Persistent multi-robot work</h2>
           <p>GenieMaster keeps physical work alive beyond a single invocation. A coding agent can divide a long-running objective across capable robots, preserve progress, and resume the next unfinished step when a task or robot changes.</p>
-          <div class="video-carousel" data-carousel aria-label="Persistent multi-robot work video slots"><div class="video-carousel-toolbar"><button class="carousel-arrow" type="button" data-carousel-prev aria-label="Previous persistent multi-robot work video" title="Previous video">&#8592;</button><span>01 / 03</span><button class="carousel-arrow" type="button" data-carousel-next aria-label="Next persistent multi-robot work video" title="Next video">&#8594;</button></div><div class="video-slot-grid highlight-video-grid carousel-track">
+          <div class="video-slot-grid highlight-video-grid" aria-label="Persistent multi-robot work video slots">
             <figure class="embedded-video-frame video-slot-media"><video controls muted preload="metadata" poster="assets/arx_multi_robot-poster.png"><source src="assets/arx_multi_robot.mp4" type="video/mp4" />Your browser does not support the video tag.</video><figcaption><span>VIDEO 01</span><span>ARX multi-robot work</span></figcaption></figure>
             <div class="video-slot"><span class="slot-index">02</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
             <div class="video-slot"><span class="slot-index">03</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
-          </div></div>
+          </div>
         </article></div>
       </section>
 
@@ -89,11 +89,11 @@
         <div class="article-grid"><aside class="chapter-rail"><span class="section-number">02</span><span class="rail-title">Agent&#8211;Policy multimodal guidance</span></aside><article class="article-copy wide-copy">
           <p class="kicker">Highlight / Agent&#8211;Policy interface</p><h2>Agent&#8211;Policy multimodal guidance</h2>
           <p>The agent turns an open-ended request into conditions a responsive policy can execute: detailed language, spatial references, and visual goals travel with the current observation so the same policy can act on new products and scenes.</p>
-          <div class="video-carousel" data-carousel aria-label="Agent-policy multimodal guidance video slots"><div class="video-carousel-toolbar"><button class="carousel-arrow" type="button" data-carousel-prev aria-label="Previous multimodal guidance video" title="Previous video">&#8592;</button><span>01 / 03</span><button class="carousel-arrow" type="button" data-carousel-next aria-label="Next multimodal guidance video" title="Next video">&#8594;</button></div><div class="video-slot-grid highlight-video-grid carousel-track">
+          <div class="video-slot-grid highlight-video-grid" aria-label="Agent-policy multimodal guidance video slots">
             <figure class="embedded-video-frame video-slot-media"><video controls muted preload="metadata" poster="assets/guidance_1-poster.png"><source src="assets/guidance_1.mp4" type="video/mp4" />Your browser does not support the video tag.</video><figcaption><span>VIDEO 01</span><span>Multimodal guidance</span></figcaption></figure>
             <figure class="embedded-video-frame video-slot-media"><video controls muted preload="metadata" poster="assets/guidance_2-poster.png"><source src="assets/guidance_2.mp4" type="video/mp4" />Your browser does not support the video tag.</video><figcaption><span>VIDEO 02</span><span>Multimodal guidance</span></figcaption></figure>
             <div class="video-slot"><span class="slot-index">03</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
-          </div></div>
+          </div>
         </article></div>
       </section>
 
@@ -194,20 +194,6 @@
             <h3>Learning from experience</h3>
             <p>Reflection improves completion-boundary alignment for six of seven detectors. With accumulated memory, orchestration success rises from 28.6% in round one to 85.7% in round five, while tool use remains in the same operating range.</p>
             <figure class="image-frame experiment-figure"><img src="assets/orchestration-self-evolution.png" alt="Orchestration success across five rounds with accumulated memory" /><figcaption><span>FIG. 07</span><span>Accumulated memory and orchestration</span></figcaption></figure>
-          </div>
-
-          <div class="experiment-block" id="libero-pro">
-            <span class="experiment-label">06.5 / Evaluation on LIBERO-Pro</span>
-            <h3>Evaluation on LIBERO-Pro</h3>
-            <p>Across Spatial, Object, Goal, and LIBERO-10 under position-swap and task perturbations, GenieMaster reaches 60.38% success, a 49.6-point gain over the listed 10.75% policy baseline. Mean execution time is 22.4 seconds.</p>
-            <div class="libero-table-pair">
-              <div class="libero-table-wrap"><table class="libero-table libero-baseline-table"><caption>(a) Comparison with policy baselines</caption><thead><tr><th>Method</th><th>FT data</th><th>Success</th></tr></thead><tbody>
-                <tr><th>OpenVLA</th><td>L40</td><td>0</td></tr><tr><th>&pi;<sub>0</sub></th><td>L40</td><td>0</td></tr><tr><th>X-VLA</th><td>L40</td><td>3.8</td></tr><tr><th>&pi;<sub>0.5</sub></th><td>L40</td><td>10.75</td></tr><tr><th>&pi;<sub>RLinf</sub></th><td>L40 + L90</td><td>50.0</td></tr><tr class="table-highlight"><th>GenieMaster</th><td>L40</td><td><strong>60.38</strong></td></tr>
-              </tbody></table></div>
-              <div class="libero-table-wrap"><table class="libero-table libero-harness-table"><caption>(b) Harness systems and gains</caption><thead><tr><th>Method</th><th>FT data</th><th>Baseline</th><th>Success</th><th>&Delta;</th></tr></thead><tbody>
-                <tr><th>CaP-X<sup>*</sup></th><td>&mdash;</td><td>&mdash;</td><td>18.2</td><td>&mdash;</td></tr><tr><th>Harness VLA (Codex)</th><td>L40 + L90</td><td>50.0</td><td>72.1</td><td>+22.1</td></tr><tr><th>Harness VLA (CC)</th><td>L40 + L90</td><td>50.0</td><td><strong>82.4</strong></td><td>+32.4</td></tr><tr><th>Pigey<sup>*</sup></th><td>L40</td><td>12.8</td><td>53.3</td><td>+40.5</td></tr><tr class="table-highlight"><th>GenieMaster</th><td>L40</td><td>10.75</td><td><strong>60.38</strong></td><td><strong>+49.6</strong></td></tr>
-              </tbody></table></div>
-            </div>
           </div>
 
           <div class="experiment-block" id="persistent-deployment">
