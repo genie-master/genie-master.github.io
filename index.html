@@ -31,8 +31,32 @@
       <section class="intro section-shell">
         <p class="kicker">Research project / 2026</p>
         <h1>GenieMaster: An Embodied Continual Harness for Persistent Multi-Robot Work</h1>
-        <p class="standfirst">Frontier agents can reason about unfamiliar tasks, while learned policies provide responsive physical control. GenieMaster connects the two through an Embodied Execution Protocol (EEP): a shared interface for capability invocation, policy guidance, physical feedback, and the continuity of unfinished work.</p>
-        <div class="intro-meta"><span>Anonymous Authors</span><span>ICLR 2027 submission</span><span>Robotics / Agents / VLA</span></div>
+        <div class="intro-actions" aria-label="Project links">
+          <a class="button button-dark" href="https://arxiv.org/" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">&#8599;</span></a>
+          <span class="button button-disabled">Code <small>Coming soon</small></span>
+          <span class="button button-date">2026</span>
+        </div>
+      </section>
+
+      <section class="video-section section-shell" aria-label="Project video">
+        <div class="video-placeholder">
+          <div class="video-grid" aria-hidden="true"></div>
+          <div class="video-copy">
+            <span class="video-play" aria-hidden="true">&#9654;</span>
+            <strong>Main project video</strong>
+            <span>VIDEO HOSTING PLACEHOLDER / CLOUDFLARE</span>
+          </div>
+          <span class="video-label">GENIEMASTER / 00:00</span>
+        </div>
+      </section>
+
+      <section class="article-section overview-section section-shell" id="overview">
+        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">00</span><span class="rail-title">At a glance</span></aside><article class="article-copy wide-copy">
+          <p class="kicker">GenieMaster</p><h2>An interface that lets a coding agent work in the physical world.</h2>
+          <p>GenieMaster connects a coding agent to responsive robot policies through an Embodied Execution Protocol. The agent composes capabilities, supplies context that a policy can use, reads physical feedback, and keeps unfinished work alive across tasks, robots, and interruptions.</p>
+          <p>The system combines capability invocation, guidance, feedback, and continuity with continual harness adaptation. Reflection and memory improve later guidance, assessment, and orchestration while the deployed model parameters remain fixed.</p>
+          <figure class="image-frame teaser-frame"><img src="assets/geniemaster-teaser-new.png" alt="GenieMaster connecting a coding agent, robot policies, physical feedback, and persistent work" /><figcaption><span>FIG. 01</span><span>GenieMaster overview</span></figcaption></figure>
+        </article></div>
       </section>
 
       <section class="article-section eep-section section-shell" id="eep">
@@ -40,7 +64,7 @@
           <p class="kicker">Embodied Execution Protocol</p><h2>One interface for reasoning, action, and what happens next.</h2>
           <p>EEP is the agent&#8211;embodiment interface at the center of GenieMaster. It lets a coding agent invoke robot capabilities, provide context that a policy has learned to use, inspect physical outcomes, and carry unfinished work across invocations and robots.</p>
           <p>The protocol is inspired by the tool abstraction of Model Context Protocol (MCP). Domain workflows express task semantics; embodiment implementations bind those workflows to robot instances, calibration, and execution services. Shared descriptions, parameters, and result contracts keep orchestration extensible.</p>
-          <figure class="image-frame architecture-frame"><img src="assets/geniemaster-architecture.png" alt="GenieMaster architecture showing EEP contracts, policy guidance, feedback, continuity, and experience memory" /><figcaption><span>FIG. 01</span><span>EEP architecture</span></figcaption></figure>
+          <figure class="image-frame architecture-frame"><img src="assets/geniemaster-architecture.png" alt="GenieMaster architecture showing EEP contracts, policy guidance, feedback, continuity, and experience memory" /><figcaption><span>FIG. 02</span><span>EEP architecture</span></figcaption></figure>
           <p class="figure-note">The four contracts describe the information that must cross the boundary between the agent and the physical world. Guidance and Feedback form a bidirectional agent&#8211;policy interface; Continuity and memory keep work moving over time.</p>
         </article></div>
       </section>
@@ -63,7 +87,7 @@
         <div class="article-grid"><aside class="chapter-rail"><span class="section-number">03</span><span class="rail-title">Continual harness adaptation</span></aside><article class="article-copy wide-copy">
           <p class="kicker">Co-design, reflection, and memory</p><h2>Experience changes the next invocation while the policy stays responsive.</h2>
           <p>A policy cannot use context that it has never learned to interpret. GenieMaster co-designs the guidance interface, demonstration annotations, and VLA training, so spatial cues, object references, and detailed language become executable conditions rather than extra text.</p>
-          <figure class="image-frame guidance-frame"><img src="assets/guidance-modalities-mj.png" alt="Examples of spatial guidance, object reference images, and detailed language guidance" /><figcaption><span>FIG. 02</span><span>Guidance modalities</span></figcaption></figure>
+          <figure class="image-frame guidance-frame"><img src="assets/guidance-modalities-mj.png" alt="Examples of spatial guidance, object reference images, and detailed language guidance" /><figcaption><span>FIG. 03</span><span>Guidance modalities</span></figcaption></figure>
           <div class="explanation-grid"><div><h3>Guide</h3><p>The agent grounds an open-ended request in the current scene, a catalog, or an object reference.</p></div><div><h3>Assess</h3><p>Success and error context makes physical outcomes available for task progression and recovery.</p></div><div><h3>Adapt</h3><p>Reflection turns records into reusable guidance, assessment criteria, and orchestration context.</p></div></div>
           <div class="adaptation-grid"><article><span class="adaptation-label">Temporary memory</span><h3>Correct the work in front of you.</h3><p>Recent execution records inform subsequent policy conditions, detector context, and task orchestration while a task is still active.</p></article><article><span class="adaptation-label">Long-term memory</span><h3>Retain what is useful later.</h3><p>Asynchronous reflection consolidates experience for later tasks and compatible robots. Deployment changes context and invocation behavior while model parameters remain fixed.</p></article></div>
           <div class="pull-quote">The harness evolves through the information it retains, not through a new model update for every physical mistake.</div>
@@ -72,18 +96,66 @@
 
       <section class="article-section feature-section section-shell" id="experiments">
         <div class="article-grid"><aside class="chapter-rail"><span class="section-number">04</span><span class="rail-title">Experiments</span></aside><article class="article-copy wide-copy">
-          <p class="kicker">Evidence across the same execution loop</p><h2>From end-to-end work to experience-based adaptation.</h2>
-          <p>The evaluations examine integrated task execution, capability composition, guidance-policy co-design, completion assessment, accumulated memory, and benchmark performance.</p>
-          <div class="metrics"><div><strong>78.79%</strong><span>macro success across six real-world tasks</span><small>vs. 38.76% for Dual-system</small></div><div><strong>92%</strong><span>novel-product retrieval at 1,000 training SKUs</span><small>vs. 20% for text-only policy</small></div><div><strong>60.38%</strong><span>LIBERO-Pro success</span><small>49.6-point gain over the listed policy baseline</small></div></div>
-          <div class="result-grid"><figure class="image-frame result-large"><img src="assets/product-generalization.png" alt="Product generalization results comparing EEP-guided and text-only policies" /><figcaption><span>Guidance-policy co-design</span><span>Novel product retrieval</span></figcaption></figure><figure class="image-frame"><img src="assets/capability-expansion.png" alt="Capability expansion results" /><figcaption><span>Capability expansion</span><span>Tool composition</span></figcaption></figure><figure class="image-frame"><img src="assets/orchestration-self-evolution.png" alt="Orchestration with accumulated memory results" /><figcaption><span>Experience adaptation</span><span>Five rounds of memory</span></figcaption></figure></div>
-          <div class="experiment-notes"><article><span class="note-number">A</span><div><h3>Learning from experience</h3><p>After one round of reflection, completion-boundary alignment improves for six of seven detectors. In five orchestration rounds, success rises from 28.6% to 85.7% as consolidated memory informs later decisions.</p></div></article><article><span class="note-number">B</span><div><h3>Persistent deployment</h3><p>A 24-hour convenience-store case study routes scheduled tasks, execution-triggered follow-ups, and customer requests through the same EEP contracts as the controlled evaluations.</p></div></article></div>
+          <p class="kicker">Evidence across the same execution loop</p><h2>Each experiment isolates a part of persistent physical work.</h2>
+          <p>We follow the paper's order: shared setup, end-to-end performance, capability composition, unseen-product generalization, learning from experience, LIBERO-Pro, and persistent deployment.</p>
+
+          <div class="experiment-block" id="overall-performance">
+            <span class="experiment-label">04.1 / Experimental setup and overall end-to-end performance</span>
+            <h3>GenieMaster improves both task success and completion.</h3>
+            <p>Across six real-world tasks, GenieMaster reaches 78.67% success rate (SR) and 89.71% task completion (TC). Human orchestration remains a useful upper reference, while the EEP harness substantially exceeds the vanilla VLA and dual-system baselines.</p>
+            <div class="bar-chart" role="img" aria-label="Overall success rate and task completion by method">
+              <div class="chart-key"><span><i class="swatch swatch-sr"></i>Success rate (SR)</span><span><i class="swatch swatch-tc"></i>Task completion (TC)</span></div>
+              <div class="chart-scale"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div>
+              <div class="bar-plot">
+                <div class="bar-group"><div class="bar-pair"><span class="bar bar-sr" style="--value:18.83%"><b>18.83</b></span><span class="bar bar-tc" style="--value:55.68%"><b>55.68</b></span></div><span class="bar-name">Vanilla<br>VLA</span></div>
+                <div class="bar-group"><div class="bar-pair"><span class="bar bar-sr" style="--value:38.83%"><b>38.83</b></span><span class="bar bar-tc" style="--value:61.31%"><b>61.31</b></span></div><span class="bar-name">Dual-<br>system</span></div>
+                <div class="bar-group"><div class="bar-pair"><span class="bar bar-sr" style="--value:78.67%"><b>78.67</b></span><span class="bar bar-tc" style="--value:89.71%"><b>89.71</b></span></div><span class="bar-name">Genie-<br>Master</span></div>
+                <div class="bar-group"><div class="bar-pair"><span class="bar bar-sr" style="--value:81%"><b>81.00</b></span><span class="bar bar-tc" style="--value:91.17%"><b>91.17</b></span></div><span class="bar-name">Human<br>orchestration</span></div>
+              </div>
+            </div>
+            <p class="chart-note">Overall is the unweighted mean across hosting guests, tablecloth spreading, office-supply search, item retrieval, restocking, and cleaning.</p>
+          </div>
+
+          <div class="experiment-block" id="capability-expansion">
+            <span class="experiment-label">04.2 / Capability composition and control allocation</span>
+            <h3>Adding capabilities makes longer tasks executable.</h3>
+            <p>As the available capability set grows from C1 to C5, success rises from 25% to 97%. Domain workflows compose reusable tools, while the harness allocates subtasks to the robot that can execute them.</p>
+            <figure class="image-frame experiment-figure"><img src="assets/capability-expansion.png" alt="Success increases as GenieMaster expands from capability set C1 to C5" /><figcaption><span>FIG. 04</span><span>Capability expansion</span></figcaption></figure>
+          </div>
+
+          <div class="experiment-block" id="product-generalization">
+            <span class="experiment-label">04.3 / Unseen-product generalization through in-context guidance</span>
+            <h3>Visual references let the policy use knowledge at execution time.</h3>
+            <p>With EEP-guided object references, novel-product retrieval improves from 12% at 10 training SKUs to 92% at 1,000. A separately trained text-only policy reaches 20% at the same scale, showing why agent-provided guidance must be aligned with policy training.</p>
+            <figure class="image-frame experiment-figure"><img src="assets/product-generalization.png" alt="EEP-guided and text-only product generalization across training SKU scales" /><figcaption><span>FIG. 05</span><span>Product generalization</span></figcaption></figure>
+          </div>
+
+          <div class="experiment-block" id="learning-from-experience">
+            <span class="experiment-label">04.4 / Learning from experience</span>
+            <h3>Reflection improves assessment and orchestration over time.</h3>
+            <p>Reflection improves completion-boundary alignment for six of seven detectors. With accumulated memory, orchestration success rises from 28.6% in round one to 85.7% in round five, while tool use remains in the same operating range.</p>
+            <figure class="image-frame experiment-figure"><img src="assets/orchestration-self-evolution.png" alt="Orchestration success across five rounds with accumulated memory" /><figcaption><span>FIG. 06</span><span>Accumulated memory and orchestration</span></figcaption></figure>
+          </div>
+
+          <div class="experiment-block" id="libero-pro">
+            <span class="experiment-label">04.5 / Evaluation on LIBERO-Pro</span>
+            <h3>The same harness transfers to a benchmark setting.</h3>
+            <p>Across Spatial, Object, Goal, and LIBERO-10 under position-swap and task perturbations, GenieMaster reaches 60.38% success, a 49.6-point gain over the listed 10.75% policy baseline. Mean execution time is 22.4 seconds.</p>
+            <div class="stat-callout"><strong>60.38%</strong><span>LIBERO-Pro success</span><small>+49.6 percentage points over the listed policy baseline</small></div>
+          </div>
+
+          <div class="experiment-block" id="persistent-deployment">
+            <span class="experiment-label">04.6 / Persistent deployment in a convenience store</span>
+            <h3>EEP keeps a live operation moving as requests arrive.</h3>
+            <p>In a 24-hour convenience-store deployment, scheduled inspections trigger restocking, customer orders trigger retrieval, and the agent assigns available capable robots. Task state and feedback let the system resume work and route follow-ups through the same contracts used in the controlled experiments.</p>
+          </div>
         </article></div>
       </section>
 
       <section class="paper-section section-shell" id="paper">
-        <div class="paper-inner"><p class="kicker">Read the paper</p><h2>GenieMaster: An Embodied Continual Harness for Persistent Multi-Robot Work</h2><p>Anonymous Authors · ICLR 2027 submission</p><div class="paper-buttons"><a class="button button-dark" href="https://arxiv.org/" target="_blank" rel="noreferrer">Paper PDF <span aria-hidden="true">&#8599;</span></a><span class="button button-disabled">Code <small>Coming soon</small></span></div><pre id="bibtex">@article{geniemaster2026,
+        <div class="paper-inner"><p class="kicker">Read the paper</p><h2>GenieMaster: An Embodied Continual Harness for Persistent Multi-Robot Work</h2><p>Paper and implementation links will be updated as they become available.</p><div class="paper-buttons"><a class="button button-dark" href="https://arxiv.org/" target="_blank" rel="noreferrer">Paper PDF <span aria-hidden="true">&#8599;</span></a><span class="button button-disabled">Code <small>Coming soon</small></span></div><pre id="bibtex">@article{geniemaster2026,
   title  = {GenieMaster: An Embodied Continual Harness for Persistent Multi-Robot Work},
-  author = {Anonymous Authors},
+  author = {GenieMaster},
   year   = {2026}
 }</pre><button id="copy-bib" class="copy-button" type="button">Copy BibTeX</button><span id="copy-feedback" aria-live="polite"></span></div>
       </section>
