@@ -47,6 +47,8 @@
       <nav class="page-toc" aria-label="Contents">
         <span class="toc-label">Contents</span>
         <a href="#overview">At a glance</a>
+        <a href="#persistent-work">Persistent work</a>
+        <a href="#multimodal-guidance">Multimodal guidance</a>
         <a href="#eep">EEP</a>
         <a href="#contracts">EEP contracts</a>
         <a href="#adaptation">Continual adaptation</a>
@@ -71,8 +73,32 @@
         </article></div>
       </section>
 
+      <section class="article-section highlight-section section-shell" id="persistent-work">
+        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">01</span><span class="rail-title">Persistent multi-robot work</span></aside><article class="article-copy wide-copy">
+          <p class="kicker">Highlight / Persistent work</p><h2>Persistent multi-robot work</h2>
+          <p>GenieMaster keeps physical work alive beyond a single invocation. A coding agent can divide a long-running objective across capable robots, preserve progress, and resume the next unfinished step when a task or robot changes.</p>
+          <div class="video-slot-grid highlight-video-grid" aria-label="Persistent multi-robot work video slots">
+            <div class="video-slot"><span class="slot-index">01</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
+            <div class="video-slot"><span class="slot-index">02</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
+            <div class="video-slot"><span class="slot-index">03</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
+          </div>
+        </article></div>
+      </section>
+
+      <section class="article-section highlight-section section-shell" id="multimodal-guidance">
+        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">02</span><span class="rail-title">Agent-policy multimodal guidance</span></aside><article class="article-copy wide-copy">
+          <p class="kicker">Highlight / Agent&#8211;policy interface</p><h2>Agent&#8211;policy multimodal guidance</h2>
+          <p>The agent turns an open-ended request into conditions a responsive policy can execute: detailed language, spatial references, and visual goals travel with the current observation so the same policy can act on new products and scenes.</p>
+          <div class="video-slot-grid highlight-video-grid" aria-label="Agent-policy multimodal guidance video slots">
+            <div class="video-slot"><span class="slot-index">01</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
+            <div class="video-slot"><span class="slot-index">02</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
+            <div class="video-slot"><span class="slot-index">03</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
+          </div>
+        </article></div>
+      </section>
+
       <section class="article-section eep-section section-shell" id="eep">
-        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">01</span><span class="rail-title">The execution protocol</span></aside><article class="article-copy wide-copy">
+        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">03</span><span class="rail-title">The execution protocol</span></aside><article class="article-copy wide-copy">
           <p class="kicker">EEP / Embodied Execution Protocol</p><h2>Embodied Execution Protocol (EEP)</h2>
           <p>EEP is the agent&#8211;embodiment interface at the center of GenieMaster. It lets a coding agent invoke robot capabilities, provide context that a policy has learned to use, inspect physical outcomes, and carry unfinished work across invocations and robots.</p>
           <p>The protocol is inspired by the tool abstraction of Model Context Protocol (MCP). Domain workflows express task semantics; embodiment implementations bind those workflows to robot instances, calibration, and execution services. Shared descriptions, parameters, and result contracts keep orchestration extensible.</p>
@@ -82,7 +108,7 @@
       </section>
 
       <section class="article-section feature-section section-shell" id="contracts">
-        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">02</span><span class="rail-title">EEP contracts</span></aside><article class="article-copy wide-copy">
+        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">04</span><span class="rail-title">EEP contracts</span></aside><article class="article-copy wide-copy">
           <p class="kicker">Capability / Guidance / Feedback / Continuity</p><h2>Four contracts make persistent execution legible.</h2>
           <p>Each contract answers a different question: what can the system do, what should the policy use, what physically happened, and what must remain true when the next task arrives?</p>
           <div class="contract-list">
@@ -90,7 +116,7 @@
               <summary><span class="contract-index">01</span><div><h3>Capability</h3><p>Domain tools compose workflows such as navigation, pick, and place; embodiment tools bind them to a selected robot, calibration, and execution service.</p><span class="contract-detail">Task workflows / composed tools / robot capabilities</span></div><span class="contract-toggle" aria-hidden="true">+</span></summary>
               <div class="contract-expanded"><p><strong>Example.</strong> A restocking request can compose shelf inspection, navigation, grasp, and placement tools. The workflow stays stable while the embodiment layer selects a robot and supplies its calibration and execution endpoint.</p><p class="contract-code"><code>inspect_shelf</code> &rarr; <code>navigate_to</code> &rarr; <code>pick</code> &rarr; <code>place</code></p></div>
             </details>
-            <details class="contract-row contract-guidance">
+            <details class="contract-row contract-guidance" open>
               <summary><span class="contract-index">02</span><div><h3>Guidance</h3><p>The agent supplies detailed language, spatial boxes or points, and object reference images alongside observations and the subtask instruction.</p><span class="contract-detail">Language / spatial cues / object references</span></div><span class="contract-toggle" aria-hidden="true">+</span></summary>
               <div class="contract-expanded"><p><strong>Spatial guidance.</strong> A box, point, or region tells the policy where the relevant object or target is in the current image. This turns “pick the red bottle” into a grounded condition.</p><p><strong>Visual goal conditioning.</strong> A reference crop or image describes what the target should look like, allowing the policy to match an unseen product by appearance rather than by a fixed category name.</p><p><strong>Detailed language.</strong> The agent can add constraints such as “grasp the neck, keep the label facing outward, and place it in the front row.”</p><figure class="image-frame guidance-frame contract-guidance-figure"><img src="assets/guidance-modalities-mj.png" alt="Examples of spatial guidance, object reference images, and detailed language guidance" /><figcaption><span>FIG. 04</span><span>Guidance contract examples</span></figcaption></figure></div>
             </details>
@@ -108,15 +134,21 @@
       </section>
 
       <section class="article-section section-shell" id="adaptation">
-        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">03</span><span class="rail-title">Continual harness adaptation</span></aside><article class="article-copy wide-copy">
+        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">05</span><span class="rail-title">Continual harness adaptation</span></aside><article class="article-copy wide-copy">
           <p class="kicker">Co-design, reflection, and memory</p><h2>Experience changes the next invocation while the policy stays responsive.</h2>
           <p>A policy cannot use context that it has never learned to interpret. GenieMaster co-designs the guidance interface, demonstration annotations, and VLA training, so spatial cues, object references, and detailed language become executable conditions rather than extra text.</p>
           <div class="memory-loop" aria-label="Continual harness improvement loop">
-            <div class="memory-orbit" aria-hidden="true"></div>
+            <svg class="memory-flow" viewBox="0 0 600 500" role="img" aria-label="Short-term memory flows through reflection and long-term memory into next-day planning, then returns to short-term memory">
+              <defs><marker id="memory-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="currentColor" /></marker></defs>
+              <path class="memory-segment memory-segment-one" d="M130 250 C145 150 210 92 300 82" marker-end="url(#memory-arrow)" />
+              <path class="memory-segment memory-segment-two" d="M300 82 C392 92 455 150 470 250" marker-end="url(#memory-arrow)" />
+              <path class="memory-segment memory-segment-three" d="M470 250 C455 350 392 408 300 418" marker-end="url(#memory-arrow)" />
+              <path class="memory-segment memory-segment-four" d="M300 418 C208 408 145 350 130 250" marker-end="url(#memory-arrow)" />
+            </svg>
             <div class="memory-card memory-short"><strong>Short-term memory</strong><span>Keep the moments.</span></div>
             <div class="memory-card memory-reflection"><strong>Reflection</strong><span>Find what matters.</span></div>
             <div class="memory-card memory-long"><strong>Long-term memory</strong><span>Carry it forward.</span></div>
-            <div class="memory-card memory-planning"><strong>Next-day agent planning</strong><span>Try again, wiser.</span></div>
+            <div class="memory-card memory-planning"><strong>Next-day planning</strong><span>Try again, wiser.</span></div>
             <div class="memory-center"><strong>Learning from<br />daily real-world<br />deployment</strong><span>A CONTINUOUS LOOP</span></div>
           </div>
           <div class="explanation-grid"><div><h3>Guide</h3><p>The agent grounds an open-ended request in the current scene, a catalog, or an object reference.</p></div><div><h3>Assess</h3><p>Success and error context makes physical outcomes available for task progression and recovery.</p></div><div><h3>Adapt</h3><p>Reflection turns records into reusable guidance, assessment criteria, and orchestration context.</p></div></div>
@@ -126,7 +158,7 @@
       </section>
 
       <section class="article-section feature-section section-shell" id="experiments">
-        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">04</span><span class="rail-title">Experiments</span></aside><article class="article-copy wide-copy">
+        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">06</span><span class="rail-title">Experiments</span></aside><article class="article-copy wide-copy">
           <p class="kicker">Evidence across the same execution loop</p><h2>Experimental evaluation</h2>
 
           <div class="experiment-block" id="overall-performance">
@@ -178,6 +210,7 @@
             <span class="experiment-label">04.6 / Persistent deployment in a convenience store</span>
             <h3>Persistent deployment in a convenience store</h3>
             <p>In a 24-hour convenience-store deployment, scheduled inspections trigger restocking, customer orders trigger retrieval, and the agent assigns available capable robots. Task state and feedback let the system resume work and route follow-ups through the same contracts used in the controlled experiments.</p>
+            <figure class="embedded-video-frame"><video controls preload="metadata" poster="assets/geniemaster-teaser-new.png"><source src="assets/persistent_work.mp4" type="video/mp4" />Your browser does not support the video tag.</video><figcaption><span>VIDEO</span><span>Persistent work deployment</span></figcaption></figure>
           </div>
         </article></div>
       </section>
