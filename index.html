@@ -39,14 +39,8 @@
       </section>
 
       <section class="video-section section-shell" aria-label="Project video">
-        <div class="video-placeholder">
-          <div class="video-grid" aria-hidden="true"></div>
-          <div class="video-copy">
-            <span class="video-play" aria-hidden="true">&#9654;</span>
-            <strong>Main project video</strong>
-            <span>VIDEO HOSTING PLACEHOLDER / CLOUDFLARE</span>
-          </div>
-          <span class="video-label">GENIEMASTER / 00:00</span>
+        <div class="video-embed">
+          <iframe src="https://iframe.videodelivery.net/5fdd96d3c09e1050dedd1e21f27a521e?preload=true&poster=https%3A%2F%2Fvideodelivery.net%2F5fdd96d3c09e1050dedd1e21f27a521e%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D0s%26height%3D720" title="GenieMaster project video" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe>
         </div>
       </section>
 
@@ -65,6 +59,14 @@
           <p class="kicker">GenieMaster</p><h2>An interface that lets a coding agent work in the physical world.</h2>
           <p>GenieMaster connects a coding agent to responsive robot policies through an Embodied Execution Protocol. The agent composes capabilities, supplies context that a policy can use, reads physical feedback, and keeps unfinished work alive across tasks, robots, and interruptions.</p>
           <p>The system combines capability invocation, guidance, feedback, and continuity with continual harness adaptation. Reflection and memory improve later guidance, assessment, and orchestration while the deployed model parameters remain fixed.</p>
+          <div class="video-slot-grid" aria-label="Additional video slots">
+            <div class="video-slot"><span class="slot-index">01</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
+            <div class="video-slot"><span class="slot-index">02</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
+            <div class="video-slot"><span class="slot-index">03</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
+            <div class="video-slot"><span class="slot-index">04</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
+            <div class="video-slot"><span class="slot-index">05</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
+            <div class="video-slot"><span class="slot-index">06</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
+          </div>
           <figure class="image-frame teaser-frame"><img src="assets/geniemaster-teaser-new.png" alt="GenieMaster connecting a coding agent, robot policies, physical feedback, and persistent work" /><figcaption><span>FIG. 01</span><span>GenieMaster overview</span></figcaption></figure>
         </article></div>
       </section>
@@ -84,12 +86,23 @@
           <p class="kicker">Capability / Guidance / Feedback / Continuity</p><h2>Four contracts make persistent execution legible.</h2>
           <p>Each contract answers a different question: what can the system do, what should the policy use, what physically happened, and what must remain true when the next task arrives?</p>
           <div class="contract-list">
-            <article class="contract-row contract-capability"><span class="contract-index">01</span><div><h3>Capability</h3><p>Domain tools compose workflows such as navigation, pick, and place; embodiment tools bind them to a selected robot, calibration, and execution service.</p><span class="contract-detail">Task workflows / composed tools / robot capabilities</span></div></article>
-            <article class="contract-row contract-guidance"><span class="contract-index">02</span><div><h3>Guidance</h3><p>The agent supplies detailed language, spatial boxes or points, and object reference images alongside observations and the subtask instruction.</p><span class="contract-detail">Language / spatial cues / object references</span></div></article>
-            <article class="contract-row contract-feedback"><span class="contract-index">03</span><div><h3>Feedback</h3><p>Current or recent observations, state, and success/error evidence return to the agent so it can progress, revise guidance, or recover.</p><span class="contract-detail">Observations / state / success or error</span></div></article>
-            <article class="contract-row contract-continuity"><span class="contract-index">04</span><div><h3>Continuity</h3><p>Robot assignments, progress, dependencies, and unfinished work persist across invocations, enabling coordination when a task is interrupted or a robot changes.</p><span class="contract-detail">Assignments / progress / dependencies / unfinished work</span></div></article>
+            <details class="contract-row contract-capability">
+              <summary><span class="contract-index">01</span><div><h3>Capability</h3><p>Domain tools compose workflows such as navigation, pick, and place; embodiment tools bind them to a selected robot, calibration, and execution service.</p><span class="contract-detail">Task workflows / composed tools / robot capabilities</span></div><span class="contract-toggle" aria-hidden="true">+</span></summary>
+              <div class="contract-expanded"><p><strong>Example.</strong> A restocking request can compose shelf inspection, navigation, grasp, and placement tools. The workflow stays stable while the embodiment layer selects a robot and supplies its calibration and execution endpoint.</p><p class="contract-code"><code>inspect_shelf</code> &rarr; <code>navigate_to</code> &rarr; <code>pick</code> &rarr; <code>place</code></p></div>
+            </details>
+            <details class="contract-row contract-guidance">
+              <summary><span class="contract-index">02</span><div><h3>Guidance</h3><p>The agent supplies detailed language, spatial boxes or points, and object reference images alongside observations and the subtask instruction.</p><span class="contract-detail">Language / spatial cues / object references</span></div><span class="contract-toggle" aria-hidden="true">+</span></summary>
+              <div class="contract-expanded"><p><strong>Spatial guidance.</strong> A box, point, or region tells the policy where the relevant object or target is in the current image. This turns “pick the red bottle” into a grounded condition.</p><p><strong>Visual goal conditioning.</strong> A reference crop or image describes what the target should look like, allowing the policy to match an unseen product by appearance rather than by a fixed category name.</p><p><strong>Detailed language.</strong> The agent can add constraints such as “grasp the neck, keep the label facing outward, and place it in the front row.”</p><figure class="image-frame guidance-frame contract-guidance-figure"><img src="assets/guidance-modalities-mj.png" alt="Examples of spatial guidance, object reference images, and detailed language guidance" /><figcaption><span>FIG. 04</span><span>Guidance contract examples</span></figcaption></figure></div>
+            </details>
+            <details class="contract-row contract-feedback">
+              <summary><span class="contract-index">03</span><div><h3>Feedback</h3><p>Current or recent observations, state, and success/error evidence return to the agent so it can progress, revise guidance, or recover.</p><span class="contract-detail">Observations / state / success or error</span></div><span class="contract-toggle" aria-hidden="true">+</span></summary>
+              <div class="contract-expanded"><p><strong>Example.</strong> After a failed grasp, the result includes the latest frame, the attempted action, and an error reason. The agent can then retry with a new point, ask another robot to help, or mark the subtask for later recovery.</p><p class="contract-code"><code>observation</code> + <code>action_result</code> + <code>failure_reason</code></p></div>
+            </details>
+            <details class="contract-row contract-continuity">
+              <summary><span class="contract-index">04</span><div><h3>Continuity</h3><p>Robot assignments, progress, dependencies, and unfinished work persist across invocations, enabling coordination when a task is interrupted or a robot changes.</p><span class="contract-detail">Assignments / progress / dependencies / unfinished work</span></div><span class="contract-toggle" aria-hidden="true">+</span></summary>
+              <div class="contract-expanded"><p><strong>Example.</strong> If a robot pauses after retrieving an item, the next invocation receives the task state, completed steps, held object, and remaining dependencies. Another available robot can continue without restarting the whole plan.</p><p class="contract-code"><code>task_id</code> + <code>completed_steps</code> + <code>assigned_robot</code> + <code>pending_work</code></p></div>
+            </details>
           </div>
-          <figure class="image-frame contracts-frame"><img src="assets/gm-framework-eep.png" alt="EEP framework showing capability, guidance, feedback, and continuity contracts" /><figcaption><span>FIG. 04</span><span>EEP contracts and execution flow</span></figcaption></figure>
           <div class="contract-callout"><strong>Guidance and Feedback are bidirectional.</strong><span>The agent guides a responsive policy; physical evidence informs the next decision.</span></div>
         </article></div>
       </section>
@@ -98,7 +111,14 @@
         <div class="article-grid"><aside class="chapter-rail"><span class="section-number">03</span><span class="rail-title">Continual harness adaptation</span></aside><article class="article-copy wide-copy">
           <p class="kicker">Co-design, reflection, and memory</p><h2>Experience changes the next invocation while the policy stays responsive.</h2>
           <p>A policy cannot use context that it has never learned to interpret. GenieMaster co-designs the guidance interface, demonstration annotations, and VLA training, so spatial cues, object references, and detailed language become executable conditions rather than extra text.</p>
-          <figure class="image-frame guidance-frame"><img src="assets/guidance-modalities-mj.png" alt="Examples of spatial guidance, object reference images, and detailed language guidance" /><figcaption><span>FIG. 03</span><span>Guidance modalities</span></figcaption></figure>
+          <div class="memory-loop" aria-label="Continual harness improvement loop">
+            <div class="memory-orbit" aria-hidden="true"></div>
+            <div class="memory-card memory-short"><strong>Short-term memory</strong><span>Keep the moments.</span></div>
+            <div class="memory-card memory-reflection"><strong>Reflection</strong><span>Find what matters.</span></div>
+            <div class="memory-card memory-long"><strong>Long-term memory</strong><span>Carry it forward.</span></div>
+            <div class="memory-card memory-planning"><strong>Next-day agent planning</strong><span>Try again, wiser.</span></div>
+            <div class="memory-center"><strong>Learning from<br />daily real-world<br />deployment</strong><span>A CONTINUOUS LOOP</span></div>
+          </div>
           <div class="explanation-grid"><div><h3>Guide</h3><p>The agent grounds an open-ended request in the current scene, a catalog, or an object reference.</p></div><div><h3>Assess</h3><p>Success and error context makes physical outcomes available for task progression and recovery.</p></div><div><h3>Adapt</h3><p>Reflection turns records into reusable guidance, assessment criteria, and orchestration context.</p></div></div>
           <div class="adaptation-grid"><article><span class="adaptation-label">Temporary memory</span><h3>Correct the work in front of you.</h3><p>Recent execution records inform subsequent policy conditions, detector context, and task orchestration while a task is still active.</p></article><article><span class="adaptation-label">Long-term memory</span><h3>Retain what is useful later.</h3><p>Asynchronous reflection consolidates experience for later tasks and compatible robots. Deployment changes context and invocation behavior while model parameters remain fixed.</p></article></div>
           <div class="pull-quote">The harness evolves through the information it retains, not through a new model update for every physical mistake.</div>
@@ -108,7 +128,6 @@
       <section class="article-section feature-section section-shell" id="experiments">
         <div class="article-grid"><aside class="chapter-rail"><span class="section-number">04</span><span class="rail-title">Experiments</span></aside><article class="article-copy wide-copy">
           <p class="kicker">Evidence across the same execution loop</p><h2>Experimental evaluation</h2>
-          <p>We follow the paper's order: shared setup, end-to-end performance, capability composition, unseen-product generalization, learning from experience, LIBERO-Pro, and persistent deployment.</p>
 
           <div class="experiment-block" id="overall-performance">
             <span class="experiment-label">04.1 / Experimental setup and overall end-to-end performance</span>
