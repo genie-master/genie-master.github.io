@@ -17,7 +17,7 @@
         <nav class="top-nav" aria-label="Page sections">
           <a href="#eep">EEP</a>
           <a href="#contracts">Contracts</a>
-          <a href="#adaptation">Adaptation</a>
+          <a href="#adaptation">Harness evolution</a>
           <a href="#experiments">Experiments</a>
         </nav>
         <div class="header-links">
@@ -51,7 +51,7 @@
         <a href="#multimodal-guidance">Multimodal guidance</a>
         <a href="#eep">EEP</a>
         <a href="#contracts">EEP contracts</a>
-        <a href="#adaptation">Continual adaptation</a>
+        <a href="#adaptation">Harness evolution</a>
         <a href="#experiments">Experiments</a>
         <a href="#paper">Paper</a>
       </nav>
@@ -61,6 +61,7 @@
           <p class="kicker">GenieMaster</p><h2>An interface that lets a coding agent work in the physical world.</h2>
           <p>GenieMaster connects a coding agent to responsive robot policies through an Embodied Execution Protocol. The agent composes capabilities, supplies context that a policy can use, reads physical feedback, and keeps unfinished work alive across tasks, robots, and interruptions.</p>
           <p>The system combines capability invocation, guidance, feedback, and continuity with continual harness adaptation. Reflection and memory improve later guidance, assessment, and orchestration while the deployed model parameters remain fixed.</p>
+          <figure class="image-frame architecture-frame"><img src="assets/geniemaster-architecture.png" alt="GenieMaster architecture showing EEP contracts, policy guidance, feedback, continuity, and experience memory" /><figcaption><span>FIG. 01</span><span>EEP architecture</span></figcaption></figure>
           <div class="video-slot-grid" aria-label="Additional video slots">
             <div class="video-slot"><span class="slot-index">01</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
             <div class="video-slot"><span class="slot-index">02</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
@@ -69,7 +70,7 @@
             <div class="video-slot"><span class="slot-index">05</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
             <div class="video-slot"><span class="slot-index">06</span><span class="slot-play">&#9654;</span><strong>Demo slot</strong><small>VIDEO COMING SOON</small></div>
           </div>
-          <figure class="image-frame teaser-frame"><img src="assets/geniemaster-teaser-new.png" alt="GenieMaster connecting a coding agent, robot policies, physical feedback, and persistent work" /><figcaption><span>FIG. 01</span><span>GenieMaster overview</span></figcaption></figure>
+          <figure class="image-frame teaser-frame"><img src="assets/geniemaster-teaser-new.png" alt="GenieMaster connecting a coding agent, robot policies, physical feedback, and persistent work" /><figcaption><span>FIG. 02</span><span>GenieMaster overview</span></figcaption></figure>
         </article></div>
       </section>
 
@@ -102,8 +103,6 @@
           <p class="kicker">EEP / Embodied Execution Protocol</p><h2>Embodied Execution Protocol (EEP)</h2>
           <p>EEP is the agent&#8211;embodiment interface at the center of GenieMaster. It lets a coding agent invoke robot capabilities, provide context that a policy has learned to use, inspect physical outcomes, and carry unfinished work across invocations and robots.</p>
           <p>The protocol is inspired by the tool abstraction of Model Context Protocol (MCP). Domain workflows express task semantics; embodiment implementations bind those workflows to robot instances, calibration, and execution services. Shared descriptions, parameters, and result contracts keep orchestration extensible.</p>
-          <figure class="image-frame architecture-frame"><img src="assets/geniemaster-architecture.png" alt="GenieMaster architecture showing EEP contracts, policy guidance, feedback, continuity, and experience memory" /><figcaption><span>FIG. 02</span><span>EEP architecture</span></figcaption></figure>
-          <p class="figure-note">The four contracts describe the information that must cross the boundary between the agent and the physical world. Guidance and Feedback form a bidirectional agent&#8211;policy interface; Continuity and memory keep work moving over time.</p>
         </article></div>
       </section>
 
@@ -129,31 +128,29 @@
               <div class="contract-expanded"><p><strong>Example.</strong> If a robot pauses after retrieving an item, the next invocation receives the task state, completed steps, held object, and remaining dependencies. Another available robot can continue without restarting the whole plan.</p><p class="contract-code"><code>task_id</code> + <code>completed_steps</code> + <code>assigned_robot</code> + <code>pending_work</code></p></div>
             </details>
           </div>
-          <div class="contract-callout"><strong>Guidance and Feedback are bidirectional.</strong><span>The agent guides a responsive policy; physical evidence informs the next decision.</span></div>
         </article></div>
       </section>
 
       <section class="article-section section-shell" id="adaptation">
-        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">05</span><span class="rail-title">Continual harness adaptation</span></aside><article class="article-copy wide-copy">
-          <p class="kicker">Co-design, reflection, and memory</p><h2>Experience changes the next invocation while the policy stays responsive.</h2>
-          <p>A policy cannot use context that it has never learned to interpret. GenieMaster co-designs the guidance interface, demonstration annotations, and VLA training, so spatial cues, object references, and detailed language become executable conditions rather than extra text.</p>
+        <div class="article-grid"><aside class="chapter-rail"><span class="section-number">05</span><span class="rail-title">Continual harness evolution</span></aside><article class="article-copy wide-copy">
+          <p class="kicker">Reflection and memory consolidation</p><h2>Continual harness evolution</h2>
+          <p>GenieMaster evolves the context used to guide, assess, and orchestrate execution while model parameters remain fixed during deployment. Temporary memory stores textual execution records: task objectives, observation summaries, detector outputs, and success or failure outcomes. When execution fails, the system automatically appends summaries of likely causes.</p>
+          <p>Periodically or on demand, asynchronous reflection reviews records across robots, assessing execution outcomes and detector judgments against task objectives and observations. This process runs outside online monitoring and consolidates reusable guidance, assessment criteria, recovery steps, and coordination strategies into long-term memory. The agent uses these instructions to guide subsequent execution, assess completion, and coordinate work across compatible robots.</p>
           <div class="memory-loop" aria-label="Continual harness improvement loop">
-            <svg class="memory-flow" viewBox="0 0 600 500" role="img" aria-label="Short-term memory flows through reflection and long-term memory into next-day planning, then returns to short-term memory">
+            <svg class="memory-flow" viewBox="0 0 600 500" preserveAspectRatio="none" role="img" aria-label="Short-term memory flows through reflection and long-term memory into next-day planning, then returns to short-term memory">
               <defs><marker id="memory-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="currentColor" /></marker></defs>
               <path class="memory-segment memory-segment-one" d="M130 250 C145 150 210 92 300 82" marker-end="url(#memory-arrow)" />
               <path class="memory-segment memory-segment-two" d="M300 82 C392 92 455 150 470 250" marker-end="url(#memory-arrow)" />
               <path class="memory-segment memory-segment-three" d="M470 250 C455 350 392 408 300 418" marker-end="url(#memory-arrow)" />
               <path class="memory-segment memory-segment-four" d="M300 418 C208 408 145 350 130 250" marker-end="url(#memory-arrow)" />
             </svg>
-            <div class="memory-card memory-short"><strong>Short-term memory</strong><span>Keep the moments.</span></div>
-            <div class="memory-card memory-reflection"><strong>Reflection</strong><span>Find what matters.</span></div>
-            <div class="memory-card memory-long"><strong>Long-term memory</strong><span>Carry it forward.</span></div>
-            <div class="memory-card memory-planning"><strong>Next-day planning</strong><span>Try again, wiser.</span></div>
+            <div class="memory-card memory-short"><strong>Short-term memory</strong><span>Execution records</span></div>
+            <div class="memory-card memory-reflection"><strong>Reflection</strong><span>Review and consolidate</span></div>
+            <div class="memory-card memory-long"><strong>Long-term memory</strong><span>Reusable instructions</span></div>
+            <div class="memory-card memory-planning"><strong>Next-day planning</strong><span>Guide subsequent work</span></div>
             <div class="memory-center"><strong>Learning from<br />daily real-world<br />deployment</strong><span>A CONTINUOUS LOOP</span></div>
           </div>
-          <div class="explanation-grid"><div><h3>Guide</h3><p>The agent grounds an open-ended request in the current scene, a catalog, or an object reference.</p></div><div><h3>Assess</h3><p>Success and error context makes physical outcomes available for task progression and recovery.</p></div><div><h3>Adapt</h3><p>Reflection turns records into reusable guidance, assessment criteria, and orchestration context.</p></div></div>
-          <div class="adaptation-grid"><article><span class="adaptation-label">Temporary memory</span><h3>Correct the work in front of you.</h3><p>Recent execution records inform subsequent policy conditions, detector context, and task orchestration while a task is still active.</p></article><article><span class="adaptation-label">Long-term memory</span><h3>Retain what is useful later.</h3><p>Asynchronous reflection consolidates experience for later tasks and compatible robots. Deployment changes context and invocation behavior while model parameters remain fixed.</p></article></div>
-          <div class="pull-quote">The harness evolves through the information it retains, not through a new model update for every physical mistake.</div>
+          <p>In the paper's office-supply search study, memory is consolidated after each round of trials. Temporary records are cleared while long-term instructions are retained. For example, after an earphone case is misidentified, memory records its silver-white, round appearance and calls for close-range verification when the target is occluded or unclear. These lessons inform later capability selection and completion assessment; retained task state separately supports the continuation of unfinished work.</p>
         </article></div>
       </section>
 
@@ -210,7 +207,7 @@
             <span class="experiment-label">06.6 / Persistent deployment in a convenience store</span>
             <h3>Persistent deployment in a convenience store</h3>
             <p>In a 24-hour convenience-store deployment, scheduled inspections trigger restocking, customer orders trigger retrieval, and the agent assigns available capable robots. Task state and feedback let the system resume work and route follow-ups through the same contracts used in the controlled experiments.</p>
-            <figure class="embedded-video-frame"><video controls preload="metadata" poster="assets/geniemaster-teaser-new.png"><source src="assets/persistent_work.mp4" type="video/mp4" />Your browser does not support the video tag.</video><figcaption><span>VIDEO</span><span>Persistent work deployment</span></figcaption></figure>
+            <figure class="embedded-video-frame"><video controls muted preload="metadata" poster="assets/geniemaster-teaser-new.png"><source src="assets/persistent_work.mp4" type="video/mp4" />Your browser does not support the video tag.</video><figcaption><span>VIDEO</span><span>Persistent work deployment</span></figcaption></figure>
           </div>
         </article></div>
       </section>
