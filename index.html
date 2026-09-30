@@ -77,8 +77,7 @@
       <section class="article-section eep-section section-shell" id="eep">
         <div class="article-grid"><aside class="chapter-rail"><span class="section-number">01</span><span class="rail-title">The execution protocol</span></aside><article class="article-copy wide-copy">
           <p class="kicker">EEP / Embodied Execution Protocol</p><h2>Embodied Execution Protocol (EEP)</h2>
-          <p>EEP is the agent&#8211;embodiment interface at the center of GenieMaster. It lets a coding agent invoke robot capabilities, provide context that a policy has learned to use, inspect physical outcomes, and carry unfinished work across invocations and robots.</p>
-          <p>The protocol is inspired by the tool abstraction of Model Context Protocol (MCP). Domain workflows express task semantics; embodiment implementations bind those workflows to robot instances, calibration, and execution services. Shared descriptions, parameters, and result contracts keep orchestration extensible.</p>
+          <p>EEP is the core interface between the agent and robot embodiments in GenieMaster. Inspired by the tool abstraction of Model Context Protocol (MCP), it connects capability invocation and policy guidance to physical feedback and retained task state. Domain workflows express task semantics, while embodiment implementations bind them to robot instances, calibration, and execution services. Shared descriptions, parameters, and result contracts support task assignment across multiple robots, dynamic adjustment, error recovery, and resumption.</p>
           <figure class="image-frame architecture-frame"><img src="assets/geniemaster-architecture.png" alt="GenieMaster architecture showing EEP contracts, policy guidance, feedback, continuity, and experience memory" /><figcaption><span>FIG. 01</span><span>EEP architecture</span></figcaption></figure>
         </article></div>
       </section>
