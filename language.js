@@ -28,7 +28,7 @@
     'At a glance': '概览', 'Persistent work': '持久化工作', 'Multimodal guidance': '多模态引导',
     'EEP contracts': 'EEP 契约', 'Contracts': '契约', 'Harness evolution': '框架持续演进',
     'Experiments': '实验', 'An interface connecting agents to the physical world.': '连接智能体与物理世界的接口。',
-    'GenieMaster connects a coding agent to responsive robot policies through an Embodied Execution Protocol. The agent composes capabilities, supplies context that a policy can use, reads physical feedback, and keeps unfinished work alive across tasks, robots, and interruptions.': 'GenieMaster 通过具身执行协议（EEP），将编程智能体连接到可响应的机器人策略。智能体组合能力、提供策略可用的上下文、读取物理反馈，并让未完成的工作在任务切换、机器人切换和中断后持续推进。',
+    'GenieMaster connects a coding agent to responsive robot policies through an Embodied Execution Protocol. The agent composes capabilities, provides policies with additional supporting information, and receives feedback from the real world. Through multi-robot collaboration, richer guidance, memory, and reflection, GenieMaster enables sustained execution of complex, long-horizon tasks in real-world environments.': 'GenieMaster 通过具身执行协议（EEP），将编程智能体连接到可响应的机器人策略。智能体组合能力、为策略提供额外的辅助信息，并获取来自真实世界的反馈。通过多机协作，以及更完善的引导、记忆与反思，GenieMaster 实现了在真实环境中持续执行复杂长程任务。',
     'The system combines capability invocation, guidance, feedback, and continuity with continual harness adaptation. Reflection and memory improve later guidance, assessment, and orchestration while the deployed model parameters remain fixed.': '系统将能力调用、引导、反馈和连续性与框架的持续适应相结合。在已部署模型参数保持不变的情况下，反思与记忆改进后续的引导、评估和任务编排。',
     'GenieMaster overview': 'GenieMaster 概览', 'Additional GenieMaster task videos': '更多 GenieMaster 任务视频',
     'Restocking': '补货', 'Handover bath towel': '递交浴巾', 'Cleaning': '清洁',
