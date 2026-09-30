@@ -47,7 +47,7 @@
     'Persistent work / view 4': '持久化工作 / 视角 4',
     'Agent–Policy multimodal guidance': '智能体与策略间的多模态引导',
     'Highlight / Agent–Policy interface': '亮点 / 智能体与策略接口',
-    'The agent turns an open-ended request into conditions a responsive policy can execute: detailed language, spatial references, and visual goals travel with the current observation so the same policy can act on new products and scenes.': '智能体将开放式请求转化为响应式策略可执行的条件：详细语言、空间参照和视觉目标与当前观测一同传递，使同一策略能够适应新商品和新场景。',
+    'The agent provides responsive policies with richer multimodal task guidance, combining detailed language, spatial references, and visual goals with current observations. In convenience-store settings, where hundreds or thousands of products may look alike, agent-provided visual conditions help GenieMaster identify the requested item or trash precisely. They also enable accurate retrieval of products unseen during training, so the policy can recognize and act on them.': '智能体为响应式策略提供更丰富的多模态任务引导，将详细语言、空间参照和视觉目标与当前观测结合起来。在商超场景中，面对数百乃至上千种外观相似的商品，Agent 提供的额外视觉条件帮助 GenieMaster 精准识别目标商品或待丢弃物品。即使是训练中从未见过的商品，这些条件也能帮助策略准确识别并执行取放任务。',
     'Agent-policy multimodal guidance video slots': '智能体与策略多模态引导视频',
     'Four contracts make persistent execution legible.': '四项契约让持久化执行清晰可控。',
     'Capability / Guidance / Feedback / Continuity': '能力 / 引导 / 反馈 / 连续性',
